@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+war{
+    archiveName 'Server.war'
+}
+
+dependencies {
+    implementation(
+            [
+                'javax:javaee-api:8.0.1',
+                'org.mariadb.jdbc:mariadb-java-client:2.7.3',
+                'org.hibernate:hibernate-core:5.4.30.Final',
+                'org.hibernate:hibernate-c3p0:5.3.16.Final',
+                'org.springframework:spring-core:5.2.15.RELEASE',
+                'org.springframework:spring-orm:4.3.2.RELEASE',
+                'org.springframework:spring-webmvc:5.2.15.RELEASE'
+            ]
+    )
+    testImplementation(
+            [
+                'org.junit.jupiter:junit-jupiter-api:5.7.0',
+            ]
+    )
+    testRuntimeOnly(
+            [
+                'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+            ]
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
