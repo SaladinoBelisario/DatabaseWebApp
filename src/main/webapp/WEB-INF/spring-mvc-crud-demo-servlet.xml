@@ -30,8 +30,8 @@
     <!-- Step 1: Define Database DataSource / connection pool -->
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
-        <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&amp;serverTimezone=UTC" />
+        <property name="driverClass" value="org.mariadb.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/web_customer_tracker?useSSL=false&amp;serverTimezone=UTC" />
         <property name="user" value="springstudent" />
         <property name="password" value="springstudent" /> 
 
@@ -65,10 +65,8 @@
 	<tx:annotation-driven transaction-manager="myTransactionManager" />
 
 	<!-- Add support for reading web resources: css, images, js, etc ... -->
-	<mvc:resources location="/resources" mapping="/resources/**"></mvc:resources>
-	
-	
-	
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+
 </beans>
 
 
